@@ -10,9 +10,14 @@ var FoodItem = function(name, calories, vegan, glutenFree, citrusFree) {
 }
 
 var cookie = new FoodItem("cookie", 100, true, true, false)
+var salad = new FoodItem("sald", 150, false, false, true)
+var sandwich = new FoodItem("sandwich", 300, true, false, false)
+
 
 $(document).on('ready', function() {
-  
+	cookie.toString();
+	salad.toString();
+	sandwich.toString();
 });
 
 // var Student = function() {} 
