@@ -5,7 +5,7 @@ var FoodItem = function(name, calories, vegan, glutenFree, citrusFree) {
 	this.glutenFree = glutenFree;
 	this.citrusFree =  citrusFree;
 	this.toString = function(){
-		return console.log("Name: " + name + "\nCalories: " + calories + "\nVegan? " + vegan + "\nGluten free? " + glutenFree + "\nCitrus free? " + citrusFree)
+		return "\n\nName: " + name + "\nCalories: " + calories + "\nVegan? " + vegan + "\nGluten free? " + glutenFree + "\nCitrus free? " + citrusFree 
 	}
 }
 
@@ -15,7 +15,7 @@ var Drink = function(name, description, price, ingredients) {
 	this.price = price;
 	this.ingredients = ingredients;
 	this.toString = function(){
-		return console.log("Name: " + name + "\nDescription: " + description + "\nPrice: " + price + "\nIngredients " + ingredients)
+		return "\n\nName: " + name + "\nDescription: " + description + "\nPrice: " + price + "\nIngredients " + ingredients
 	}
 }
 
@@ -55,7 +55,8 @@ var Plate = function(name, description, price, ingredients) {
 
 
 	this.toString = function(){
-		return console.log("Name: " + name + "\nDescription: " + description + "\nPrice: " + price + "\nIngredients: " + ingredients)
+		
+		return "\n\nName: " + name + "\nDescription: " + description + "\nPrice: " + price + "\nIngredients: " + ingredients
 	}
 }
 
@@ -66,7 +67,7 @@ var Order = function(plates) {
 		for (var i = 0; i < plates.length; i++) {
 			menuItem += plates[i].name + "\n";
 		};
-		return console.log("Plates: \n" + menuItem)
+		return "Plates: \n" + menuItem
 	}
 }
 
@@ -77,7 +78,7 @@ var Menu = function(plates) {
 		for (var i = 0; i < plates.length; i++) {
 			menuItem += plates[i].name + "\n";
 		};
-		return console.log("Order: \n" + menuItem)
+		return "\n" + menuItem + plates
 	}
 }
 
@@ -87,16 +88,17 @@ var Restaurant = function(name, description, menu) {
 	this.description = description;
 	this.menu = menu;
 	this.toString = function(){
-		return console.log("Name: " + name + "\nDescription: " + description + "\nMenu: " + menu)
+		return "Name: " + name + "\nDescription: " + description + "\nMenu: " + menu
 	}
 }
 
 var Customer = function(dietaryPreference) {
 	this.dietaryPreference = dietaryPreference;
 	this.toString = function(){
-		return console.log("Dietary preference: " + dietaryPreference)
+		return "Dietary preference: " + dietaryPreference
 	}
 }
+
 
 var beans = new FoodItem("beans", 25, true, true, true)
 var rice = new FoodItem("rice", 10, true, true, true)
@@ -117,7 +119,8 @@ var margarita = new Drink("Margarita", "Lime margarita", 4.00, [tequilla, lime])
 
 var mainMenu = new Menu([burrito, guacamole, margarita])
 
-var restaraunt = new Restaurant('Juan\'s', 'Cheap food and drinks', mainMenu)
+var restaurant = new Restaurant('Juan\'s', 'Cheap food and drinks', mainMenu)
+
 
 
 $(document).on('ready', function() {
