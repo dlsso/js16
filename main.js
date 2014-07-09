@@ -81,6 +81,7 @@ var Menu = function(plates) {
 	}
 }
 
+
 var Restaurant = function(name, description, menu) {
 	this.name = name;
 	this.description = description;
@@ -107,16 +108,24 @@ var lime = new FoodItem("lime", 10, true, true, false)
 var tomato = new FoodItem("tomato", 300, true, true, true)
 var chips = new FoodItem("chips", 25, true, false, true)
 
+var tequilla = new FoodItem("tequilla", 75, true, true, true)
+
+
 var burrito = new Plate("Giant Burrito", "This is a giant burrito.", 4.99, [beans, rice, chicken, tortilla])
 var guacamole = new Plate("Guacamole", "Chip dip", 3.00, [avacado, lime, tomato, chips])
+var margarita = new Drink("Margarita", "Lime margarita", 4.00, [tequilla, lime])
 
-var mainMenu = new Menu([burrito, guacamole])
+var mainMenu = new Menu([burrito, guacamole, margarita])
+
+var restaraunt = new Restaurant('Juan\'s', 'Cheap food and drinks', mainMenu)
+
 
 $(document).on('ready', function() {
 
 
 
 });
+
 
 
 // the Menu object should call toString on each of its plates to reuse that functionality instead of having to duplicate the code for each plate
