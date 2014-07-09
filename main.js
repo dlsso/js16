@@ -26,16 +26,32 @@ var Plate = function(name, description, price, ingredients) {
 	this.price = price;
 	this.ingredients = ingredients;
 
-	// This is where we left off. Did not test.
 	this.isVegan = function(){
 		v = false
 		for (var i = 0; i < ingredients.length; i++) {
-			if(ingredients[i].vegan === true){ v = true};
-			else{ v = false}
+			if(ingredients[i].vegan === true){ v = true}
+			else{ v = false; return v }
 		};
 		return v;
 	}
-	// To here
+
+	this.isGlutenFree = function(){
+		gf = false
+		for (var i = 0; i < ingredients.length; i++) {
+			if(ingredients[i].glutenFree === true){ gf = true}
+			else{ gf = false; return gf }
+		};
+		return gf;
+	}
+
+	this.isCitrusFree = function(){
+		cf = false
+		for (var i = 0; i < ingredients.length; i++) {
+			if(ingredients[i].citrusFree === true){ cf = true}
+			else{ cf = false; return cf }
+		};
+		return cf;
+	}	
 
 
 	this.toString = function(){
@@ -82,9 +98,14 @@ var Customer = function(dietaryPreference) {
 }
 
 var beans = new FoodItem("beans", 25, true, true, true)
-var salad = new FoodItem("sald", 150, false, false, true)
-var sandwich = new FoodItem("sandwich", 300, true, false, false)
-var sandwich = new FoodItem("sandwich", 300, true, false, false)
+var rice = new FoodItem("rice", 10, true, true, true)
+var chicken = new FoodItem("chicken", 300, false, true, true)
+var tortilla = new FoodItem("tortilla", 25, true, true, true)
+
+var avacado = new FoodItem("avacado", 25, true, true, true)
+var lime = new FoodItem("lime", 10, true, true, false)
+var tomato = new FoodItem("tomato", 300, true, true, true)
+var chips = new FoodItem("chips", 25, true, false, true)
 
 var burrito = new Plate("Giant Burrito", "This is a giant burrito.", 4.99, [beans, rice, chicken, tortilla])
 var guacamole = new Plate("Guacamole", "Chip dip", 3.00, [avacado, lime, tomato, chips])
